@@ -12,32 +12,52 @@ class burger_maker:
         self.root.title("Burger Builder")
         
         # Container for frames
-        self.container = frame(self.root)
+        self.container = Frame(self.root)
         self.container.grid(row=0, column=0, sticky="nsew")
         
         # Dictionary to hold the frames and keys use to create the frame
         self.frames = {}
-        self.frames["menu"] = self.main_menu()
-        self.frames["create_burger"] = self.burger_creation()
-        self.frames["pick_side"] = self.side_selection()
-        self.frames["pick_drink"] = self.drinks_selection()
-        self.frames["ordering"] = self.order_menu()
+        self.frames["Menu"] = self.main_menu()
+        self.frames["Create_burger"] = self.burger_creation()
+        self.frames["Pick_side"] = self.side_selection()
+        self.frames["Pick_drink"] = self.drinks_selection()
+        self.frames["Ordering"] = self.order_menu()
         
         # Show inital frame
         self.show_frame("menu")
         
+        def frame_show(self, name):
+            frame = self.name[name]
+            frame.tkraise() # Move frame to top of stack
+        
         def main_menu(self):
+            frame = Frame(self.container)
+            frame.grid(row=0, column=0, sticky="nsew")
+            
+            # Main heading
+            Label(frame, font=TITLE, text="Burger creation menu").grid(row=0, padx=10, pady=10, sticky="nsew")
+            
+            # Buttons for other menu
+            Button(frame, text="Burger creation", bg="yellow", font=TEXT, command=lambda:
+                   self.show_frame("Create_burger")).grid(row=1, column=0)
+            return frame
+        
+        def burger_creation(self):
             
             pass
         
-        def burger_creation(self):
-            pass
-        
-        def side_selection(self):
+        def sides_selection(self):
+            
             pass
         
         def drinks_selection(self):
+            
             pass
         
         def order_menu(self):
+            
             pass
+
+root = Tk()
+app = burger_maker(root)
+root.mainloop()
