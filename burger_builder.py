@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import ttk
 
 TITLE = "Arial 14"
 TEXT = "Arial 11"
@@ -47,11 +48,25 @@ class burger_maker:
             pass
         
         def sides_selection(self):
+            Label(frame, font=TITLE, text="Side selection").grid(row=0, columnspan=2,
+                                                                 padx=10, pady=10, sticky="nsew")
+            Label(frame, font=TEXT, text="Side options").grid(row=1, column=0)
             
+            # Combobox
+            Side_pick = ttk.Combobox(root, state="readonly",
+                                 values=["Chips", "Onion rings", "salad"])
+            Side_pick.grid(row=1, column=1, pady=20)
             pass
         
         def drinks_selection(self):
+            Label(frame, font=TITLE, text="Drinks selection").grid(row=0, columnspan=2,
+                                                                 padx=10, pady=10, sticky="nsew")
+            Label(frame, font=TEXT, text="Drink options").grid(row=1, column=0)
             
+            # Combobox
+            drink_pick = ttk.Combobox(root, state="readonly",
+                                      values=["Tea", "L&P", "Coke Cola", "Sprite"])
+            drink_pick.grid(row=1, column=1, pady=20)            
             pass
         
         def order_menu(self):
