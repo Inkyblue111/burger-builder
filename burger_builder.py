@@ -41,13 +41,47 @@ class burger_maker:
             # Buttons for other menu
             Button(frame, text="Burger creation", bg="yellow", font=TEXT, command=lambda:
                    self.show_frame("Create_burger")).grid(row=1, column=0)
+            Button(frame, text="Side selection", bg="yellow", font=TEXT, command=lambda:
+                   self.show_frame("Create_burger")).grid(row=1, column=0)
+            Button(frame, text="Drink selection", bg="yellow", font=TEXT, command=lambda:
+                   self.show_frame("Create_burger")).grid(row=1, column=0)
+            Button(frame, text="Order menu", bg="yellow", font=TEXT, command=lambda:
+                   self.show_frame("Create_burger")).grid(row=1, column=0)            
             return frame
         
         def burger_creation(self):
+            frame = Frame(self.container)
+            frame.grid(row=0, column=0, sticky="nsew")
             
+            Label(frame, font=TITLE, text="Burger creation").grid(row=0, columnspan=2,
+                                                                padx=10, pady=10, sticky="nsew")
+            Label(frame, font=TEXT, text="Meat options").grid(row=1, column=0)
+            
+            # Combobox
+            Meat_pick = ttk.Combobox(root, state="readonly",
+                                    values=["Beaf", "Lamb", "Chicken", "Pork"])
+            Meat_pick.grid(row=1, column=1, pady=20)
+            
+            #
+            #
+            
+            Garnish_1 = ttk.Combobox(root, state="readonly",
+                                    values=["Tomato", "Onion", "Lettuce"])
+            Garnish_1.grid(row=2, column=1, pady=20)
+            
+            Garnish_2 = ttk.Combobox(root, state="readonly",
+                                    values=["Tomato", "Onion", "Lettuce"])
+            Garnish_2.grid(row=3, column=1, pady=20)
+            
+            sauces_pick = ttk.Combobox(root, state="readonly",
+                                    values=["Mayo", "Ketchup", "Mustard", "Apple sauce"])
+            sauces_pick.grid(row=4, column=1, pady=20)            
             pass
         
         def sides_selection(self):
+            frame = Frame(self.container)
+            frame.grid(row=0, column=0, sticky="nsew")            
+            
             Label(frame, font=TITLE, text="Side selection").grid(row=0, columnspan=2,
                                                                  padx=10, pady=10, sticky="nsew")
             Label(frame, font=TEXT, text="Side options").grid(row=1, column=0)
@@ -59,17 +93,22 @@ class burger_maker:
             pass
         
         def drinks_selection(self):
+            frame = Frame(self.container)
+            frame.grid(row=0, column=0, sticky="nsew")
+            
             Label(frame, font=TITLE, text="Drinks selection").grid(row=0, columnspan=2,
                                                                  padx=10, pady=10, sticky="nsew")
             Label(frame, font=TEXT, text="Drink options").grid(row=1, column=0)
             
             # Combobox
-            drink_pick = ttk.Combobox(root, state="readonly",
+            Drink_pick = ttk.Combobox(root, state="readonly",
                                       values=["Tea", "L&P", "Coke Cola", "Sprite"])
-            drink_pick.grid(row=1, column=1, pady=20)            
+            Drink_pick.grid(row=1, column=1, pady=20)            
             pass
         
         def order_menu(self):
+            frame = Frame(self.container)
+            frame.grid(row=0, column=0, sticky="nsew")            
             
             pass
 
