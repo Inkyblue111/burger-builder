@@ -5,8 +5,21 @@ TITLE = "Arial 14"
 TEXT = "Arial 11"
 # The title will be used for the main header for each page and text will be used for other things like buttons
 
+class burger_order:
+    ''' Will be used to process the order '''
+    
+    def burger_order(self, root):
+        ''' Add the items that were chosen and put it on the screen '''
+    
+    def side_order(self, root):
+        ''' Add the items that were chosen and put it on the screen '''
+    
+    def drink_order(self, root):
+        ''' Add the items that were chosen and put it on the screen '''    
+
 class burger_maker:
     ''' Will be used to make the order '''
+    
     def __init__(self, root):
         # Main menu
         self.root = root
@@ -15,6 +28,16 @@ class burger_maker:
         # Container for frames
         self.container = Frame(self.root)
         self.container.grid(row=0, column=0, sticky="nsew")
+        
+        #order_price = {
+            #"Meat": {"Beaf", "Lamb", "Chicken", "Pork", "vegaterian"}
+            #"Garnish": {"Tomato", "Onion", "Lettuce"}
+            #"Sauce" : {"Mayo", "Ketchup", "Mustard", "Apple sauce"}
+            #"Sides" : {}
+            #"Dips" : {}
+            #"Drinks" : {}
+            #"Milkshakes" : {}
+        #}
         
         # Dictionary to hold the frames and keys use to create the frame
         self.frames = {}
@@ -59,31 +82,42 @@ class burger_maker:
         Label(frame, font=TEXT, text="Meat options").grid(row=1, column=0)
         
         # Combobox for meat
-        Meat_pick = ttk.Combobox(root, state="readonly",
+        Meat_pick = ttk.Combobox(frame, state="readonly",
                                 values=["Beaf", "Lamb", "Chicken", "Pork", "vegaterian"])
         Meat_pick.grid(row=1, column=1, pady=10)
         
         Label(frame, font=TEXT, text="Meat amount").grid(row=2, column=0)
         
-        #
+        # Input box for meat amount
+        self.a_box = Entry(frame)
+        self.a_box.grid(row=2, column=1, pady=10)
+        
+        #if Entry > 3:
+            #print("Pick a lower number")
+        #elif Entry < 1:
+            #print("If you want a meatless burger pick vegaterian")
         
         Label(frame, font=TEXT, text="Garnish 1").grid(row=3, column=0)
         # Combobox for Garnish
-        #Garnish_1 = ttk.Combobox(root, state="readonly",
-                                #values=["Tomato", "Onion", "Lettuce"])
-        #Garnish_1.grid(row=3, column=1, pady=20)
+        Garnish_1 = ttk.Combobox(frame, state="readonly",
+                                values=["Tomato", "Onion", "Lettuce"])
+        Garnish_1.grid(row=3, column=1, pady=10)
         
         Label(frame, font=TEXT, text="Garnish 2").grid(row=4, column=0)
         
-        #Garnish_2 = ttk.Combobox(root, state="readonly",
-                                #values=["Tomato", "Onion", "Lettuce"])
-        #Garnish_2.grid(row=4, column=1, pady=20)
+        Garnish_2 = ttk.Combobox(frame, state="readonly",
+                                values=["Tomato", "Onion", "Lettuce"])
+        Garnish_2.grid(row=4, column=1, pady=10)
         
         Label(frame, font=TEXT, text="Sauces").grid(row=5, column=0)
         # Combobox for Sauces
-        #sauces_pick = ttk.Combobox(root, state="readonly",
-                                #values=["Mayo", "Ketchup", "Mustard", "Apple sauce"])
-        #sauces_pick.grid(row=5, column=1, pady=20)
+        sauces_pick = ttk.Combobox(frame, state="readonly",
+                                values=["Mayo", "Ketchup", "Mustard", "Apple sauce"])
+        sauces_pick.grid(row=5, column=1, pady=10)
+        
+        Button(frame, text="Back", bg="yellow", font=TEXT, command=lambda:
+               self.show_frame("Main_menu")).grid(row=6, columnspan=2)
+        
         return frame
     
     def side_selection(self):
@@ -95,11 +129,18 @@ class burger_maker:
         Label(frame, font=TEXT, text="Side options").grid(row=1, column=0)
         
         # Combobox for Sides
-        #Side_pick = ttk.Combobox(root, state="readonly",
-                             #values=["Chips", "Onion rings", "salad"])
-        #Side_pick.grid(row=1, column=1, pady=20)
+        Side_pick = ttk.Combobox(frame, state="readonly",
+                             values=["Chips", "Onion rings", "salad"])
+        Side_pick.grid(row=1, column=1, pady=10)
         
         Label(frame, font=TEXT, text="Dips options").grid(row=2, column=0)
+        
+        # Combobox for Dips
+        Dips_pick = ttk.Combobox(frame, state="readonly", values=["Ketchup", "Aioli"])
+        Dips_pick.grid(row=2, column=1, pady=10)
+        
+        Button(frame, text="Back", bg="yellow", font=TEXT, command=lambda:
+               self.show_frame("Main_menu")).grid(row=3, columnspan=2)        
         return frame
     
     def drinks_selection(self):
@@ -111,11 +152,19 @@ class burger_maker:
         Label(frame, font=TEXT, text="Drink options").grid(row=1, column=0)
         
         # Combobox for Drinks
-        #Drink_pick = ttk.Combobox(root, state="readonly",
-                                  #values=["Tea", "L&P", "Coke Cola", "Sprite"])
-        #Drink_pick.grid(row=1, column=1, pady=20)
+        Drink_pick = ttk.Combobox(frame, state="readonly",
+                                  values=["Tea", "L&P", "Coke Cola", "Sprite"])
+        Drink_pick.grid(row=1, column=1, pady=10)
         
         Label(frame, font=TEXT, text="Milkshake options").grid(row=2, column=0)
+        
+        # Combobox for Milkshakes
+        Milkshake_pick = ttk.Combobox(frame, state="readonly",
+                                  values=["Chocolate", "strawberry", "caramel"])
+        Milkshake_pick.grid(row=2, column=1, pady=10)
+        
+        Button(frame, text="Back", bg="yellow", font=TEXT, command=lambda:
+               self.show_frame("Main_menu")).grid(row=3, columnspan=2)        
         return frame
     
     def order_menu(self):
@@ -126,13 +175,30 @@ class burger_maker:
                                                              padx=10, pady=10, sticky="nsew")
         Label(frame, font=TEXT, text="Burger cost").grid(row=1, column=0)
         
+        self.label_burger = Label(frame, font=TEXT, text="???").grid(row=1, column=1)
+        
         Label(frame, font=TEXT, text="Side cost").grid(row=2, column=0)
+        
+        self.label_burger = Label(frame, font=TEXT, text="???").grid(row=2, column=1)
         
         Label(frame, font=TEXT, text="Drinks cost").grid(row=3, column=0)
         
+        self.label_burger = Label(frame, font=TEXT, text="???").grid(row=3, column=1)
+        
         Label(frame, font=TEXT, text="Total").grid(row=4, column=0)
         
+        self.label_total = Label(frame, font=TEXT, text="???").grid(row=4, column=1)
+        
         return frame
+    
+    def burger_cost(self):
+        pass
+    
+    def side_cost(self):
+        pass
+    
+    def drink_cost(self):
+        pass    
 
 root = Tk()
 app = burger_maker(root)
