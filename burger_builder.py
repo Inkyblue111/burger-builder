@@ -164,9 +164,9 @@ class burger_maker:
         
         Button(frame, text="Back", bg="yellow", font=TEXT, command=lambda:
                self.show_frame("Main_menu")).grid(row=4, columnspan=2)
-        Button(frame, text="Burger cost process", bg="yellow", font=TEXT, command=self.burger_cost).grid(row=5, columnspan=2)
-        Button(frame, text="Side cost process", bg="yellow", font=TEXT, command=self.side_cost).grid(row=6, columnspan=2)
-        Button(frame, text="Drink cost process", bg="yellow", font=TEXT, command=self.drink_cost).grid(row=7, columnspan=2)
+        Button(frame, text="Click to show burger cost ", bg="yellow", font=TEXT, command=self.burger_cost).grid(row=5, columnspan=2)
+        Button(frame, text="Click to show side cost", bg="yellow", font=TEXT, command=self.side_cost).grid(row=6, columnspan=2)
+        Button(frame, text="Click to show drink cost", bg="yellow", font=TEXT, command=self.drink_cost).grid(row=7, columnspan=2)
         Button(frame, text="Finish order", bg="yellow", font=TEXT, command=self.quit).grid(row=8, columnspan=2)
         return frame
     
