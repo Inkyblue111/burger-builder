@@ -61,9 +61,9 @@ class burger_maker:
         Label(frame, font=TEXT, text="Meat options").grid(row=1, column=0)
         
         # Combobox for meat
-        Meat_pick = ttk.Combobox(frame, state="readonly",
+        self.Meat_pick = ttk.Combobox(frame, state="readonly",
                                 values=["Beef:$8", "Lamb:$8", "Chicken:$9", "Pork:$9", "vegaterian:$7"])
-        Meat_pick.grid(row=1, column=1, pady=10)
+        self.Meat_pick.grid(row=1, column=1, pady=10)
         
         Label(frame, font=TEXT, text="Meat amount: 1-3").grid(row=2, column=0)
         
@@ -73,21 +73,21 @@ class burger_maker:
         
         Label(frame, font=TEXT, text="Garnish 1").grid(row=3, column=0)
         # Combobox for Garnish
-        Garnish_1 = ttk.Combobox(frame, state="readonly",
+        self.Garnish_1 = ttk.Combobox(frame, state="readonly",
                                 values=["Tomato:$4", "Onion:$4", "Lettuce:$3"])
-        Garnish_1.grid(row=3, column=1, pady=10)
+        self.Garnish_1.grid(row=3, column=1, pady=10)
         
         Label(frame, font=TEXT, text="Garnish 2").grid(row=4, column=0)
         
-        Garnish_2 = ttk.Combobox(frame, state="readonly",
+        self.Garnish_2 = ttk.Combobox(frame, state="readonly",
                                 values=["Tomato:$4", "Onion:$4", "Lettuce:$3"])
-        Garnish_2.grid(row=4, column=1, pady=10)
+        self.Garnish_2.grid(row=4, column=1, pady=10)
         
         Label(frame, font=TEXT, text="Sauces").grid(row=5, column=0)
         # Combobox for Sauces
-        sauces_pick = ttk.Combobox(frame, state="readonly",
+        self.sauces_pick = ttk.Combobox(frame, state="readonly",
                                 values=["Mayo:$2", "Ketchup:$2", "Mustard:$2", "Apple sauce:$2"])
-        sauces_pick.grid(row=5, column=1, pady=10)
+        self.sauces_pick.grid(row=5, column=1, pady=10)
         
         Button(frame, text="Back", bg="yellow", font=TEXT, command=lambda:
                self.show_frame("Main_menu")).grid(row=6, columnspan=2)
@@ -103,15 +103,15 @@ class burger_maker:
         Label(frame, font=TEXT, text="Side options").grid(row=1, column=0)
         
         # Combobox for Sides
-        Side_pick = ttk.Combobox(frame, state="readonly",
+        self.Side_pick = ttk.Combobox(frame, state="readonly",
                              values=["Chips:$5", "Onion rings:$5", "salad:$4"])
-        Side_pick.grid(row=1, column=1, pady=10)
+        self.Side_pick.grid(row=1, column=1, pady=10)
         
         Label(frame, font=TEXT, text="Dips options").grid(row=2, column=0)
         
         # Combobox for Dips
-        Dips_pick = ttk.Combobox(frame, state="readonly", values=["Ketchup:$2", "Aioli:$2"])
-        Dips_pick.grid(row=2, column=1, pady=10)
+        self.Dips_pick = ttk.Combobox(frame, state="readonly", values=["Ketchup:$2", "Aioli:$2"])
+        self.Dips_pick.grid(row=2, column=1, pady=10)
         
         Button(frame, text="Back", bg="yellow", font=TEXT, command=lambda:
                self.show_frame("Main_menu")).grid(row=3, columnspan=2)        
@@ -126,16 +126,16 @@ class burger_maker:
         Label(frame, font=TEXT, text="Drink options").grid(row=1, column=0)
         
         # Combobox for Drinks
-        Drink_pick = ttk.Combobox(frame, state="readonly",
+        self.Drink_pick = ttk.Combobox(frame, state="readonly",
                                   values=["Tea:$4", "L&P:$4", "CokeCola:$4", "Sprite:$4"])
-        Drink_pick.grid(row=1, column=1, pady=10)
+        self.Drink_pick.grid(row=1, column=1, pady=10)
         
         Label(frame, font=TEXT, text="Milkshake options").grid(row=2, column=0)
         
         # Combobox for Milkshakes
-        Milkshake_pick = ttk.Combobox(frame, state="readonly",
+        self.Milkshake_pick = ttk.Combobox(frame, state="readonly",
                                   values=["Chocolate:$6", "strawberry:$6", "caramel:$6"])
-        Milkshake_pick.grid(row=2, column=1, pady=10)
+        self.Milkshake_pick.grid(row=2, column=1, pady=10)
         
         Button(frame, text="Back", bg="yellow", font=TEXT, command=lambda:
                self.show_frame("Main_menu")).grid(row=3, columnspan=2)        
@@ -149,92 +149,112 @@ class burger_maker:
                                                              padx=40, pady=10, sticky="nsew")
         Label(frame, font=TEXT, text="Burger overview").grid(row=1, column=0)
         # Shows the cost of the burger
-        self.label_burger = Label(frame, font=TEXT, text="???").grid(row=1, column=1)
+        self.label_burger = Label(frame, font=TEXT, text="")
+        self.label_burger.grid(row=1, column=1)
         
         Label(frame, font=TEXT, text="Side overview").grid(row=2, column=0)
         # Shows the cost of the side
-        self.label_side = Label(frame, font=TEXT, text="???").grid(row=2, column=1)
+        self.label_side = Label(frame, font=TEXT, text="")
+        self.label_side.grid(row=2, column=1)
         
         Label(frame, font=TEXT, text="Drinks overview").grid(row=3, column=0)
         # Shows the cost of the drink
-        self.label_drink = Label(frame, font=TEXT, text="???").grid(row=3, column=1)
-        
-        Label(frame, font=TEXT, text="Total").grid(row=4, column=0)
-        
-        self.label_total = Label(frame, font=TEXT, text="???").grid(row=4, column=1)
+        self.label_drink = Label(frame, font=TEXT, text="")
+        self.label_drink.grid(row=3, column=1)
         
         Button(frame, text="Back", bg="yellow", font=TEXT, command=lambda:
-               self.show_frame("Main_menu")).grid(row=5, columnspan=2)
-        Button(frame, text="Finish order", bg="yellow", font=TEXT, command=self.quit).grid(row=6, columnspan=2)        
+               self.show_frame("Main_menu")).grid(row=4, columnspan=2)
+        Button(frame, text="Burger cost process", bg="yellow", font=TEXT, command=self.burger_cost).grid(row=5, columnspan=2)
+        Button(frame, text="Side cost process", bg="yellow", font=TEXT, command=self.side_cost).grid(row=6, columnspan=2)
+        Button(frame, text="Drink cost process", bg="yellow", font=TEXT, command=self.drink_cost).grid(row=7, columnspan=2)
+        Button(frame, text="Finish order", bg="yellow", font=TEXT, command=self.quit).grid(row=8, columnspan=2)
         return frame
     
     def burger_cost(self):
-        #if Meat_pick == "Beef:$8":
-            #self.burger_Total += 8
-        #elif Meat_pick == "Lamb:$8":
-            #self.burger_Total += 8
-        #elif Meat_pick == "Chicken:$9":
-            #self.burger_Total += 9
-        #elif Meat_pick == "Pork:$9":
-            #self.burger_Total += 9
-        #elif Meat_pick == "vegaterian:$7":
-            #self.burger_Total += 7
+        burger_Total = 0
         
-        #if Garnish_1 == "Tomato:$4":
-            #self.burger_Total += 4
-        #elif Garnish_1 == "Onion:$4":
-            #self.burger_Total += 4
-        #elif Garnish_1 == "Lettuce:$3":
-            #self.burger_Total += 3
+        if self.Meat_pick.get() == "Beef:$8":
+            burger_Total += 8
+        elif self.Meat_pick.get() == "Lamb:$8":
+            burger_Total += 8
+        elif self.Meat_pick.get() == "Chicken:$9":
+            burger_Total += 9
+        elif self.Meat_pick.get() == "Pork:$9":
+            burger_Total += 9
+        elif self.Meat_pick.get() == "vegaterian:$7":
+            burger_Total += 7
         
-        #if Garnish_2 == "Tomato:$4":
-            #self.burger_Total += 4
-        #elif Garnish_2 == "Onion:$4":
-            #self.burger_Total += 4
-        #elif Garnish_2 == "Lettuce:$3":
-            #self.burger_Total += 3        
+        if self.a_box.get() == "1":
+            burger_Total += 0
+        elif self.a_box.get() == "2":
+            burger_Total += 3
+        elif self.a_box.get() == "3":
+            burger_Total += 6
+        else:
+            burger_Total += 0
         
-        #if sauces_pick == "Mayo:$2":
-            #self.burger_Total += 2
-        #elif sauces_pick == "Ketchup:$2":
-            #self.burger_Total += 2
-        #elif sauces_pick == "Mustard:$2":
-            #self.burger_Total += 2
-        #elif sauces_pick == "Apple sauce:$2":
-            #self.burger_Total += 2
-        pass
+        if self.Garnish_1.get() == "Tomato:$4":
+            burger_Total += 4
+        elif self.Garnish_1.get() == "Onion:$4":
+            burger_Total += 4
+        elif self.Garnish_1.get() == "Lettuce:$3":
+            burger_Total += 3
+        
+        if self.Garnish_2.get() == "Tomato:$4":
+            burger_Total += 4
+        elif self.Garnish_2.get() == "Onion:$4":
+            burger_Total += 4
+        elif self.Garnish_2.get() == "Lettuce:$3":
+            burger_Total += 3        
+        
+        if self.sauces_pick.get() == "Mayo:$2":
+            burger_Total += 2
+        elif self.sauces_pick.get() == "Ketchup:$2":
+            burger_Total += 2
+        elif self.sauces_pick.get() == "Mustard:$2":
+            burger_Total += 2
+        elif self.sauces_pick.get() == "Apple sauce:$2":
+            burger_Total += 2
+        
+        self.label_burger.configure(text=burger_Total)
     
     def side_cost(self):
-        #if Side_pick == "Chips:$5":
-            #self.side_Total += 5
-        #elif Side_pick == "Onion rings:$5":
-            #self.side_Total += 5
-        #elif Side_pick == "salad:$4":
-            #self.side_Total += 4
+        side_Total = 0
         
-        #if Dips_pick == "Ketchup:$2":
-            #self.side_Total += 2
-        #elif Dips_pick == "Aioli:$2":
-            #self.side_Total += 2
-        pass
+        if self.Side_pick.get() == "Chips:$5":
+            side_Total += 5
+        elif self.Side_pick.get() == "Onion rings:$5":
+            side_Total += 5
+        elif self.Side_pick.get() == "salad:$4":
+            side_Total += 4
+        
+        if self.Dips_pick.get() == "Ketchup:$2":
+            side_Total += 2
+        elif self.Dips_pick.get() == "Aioli:$2":
+            side_Total += 2
+        
+        self.label_side.configure(text=side_Total)
     
     def drink_cost(self):
-        #if Drink_pick == "Tea:$4":
-            #self.drink_Total += 4
-        #elif Drink_pick == "L&P:$4":
-            #self.drink_Total += 4
-        #elif Drink_pick == "CokeCola:$4":
-            #self.drink_Total += 4
-        #elif Drink_pick == "Sprite:$4":
-            #self.drink_Total += 4
+        drink_Total = 0
         
-        #if Milkshake_pick == "Chocolate:$6":
-            #self.drink_Total += 6
-        #elif Milkshake_pick == "strawberry:$6":
-            #self.drink_Total += 6
-        #elif Milkshake_pick == "caramel:$6":
-            #self.drink_Total += 6
-        pass
+        if self.Drink_pick.get() == "Tea:$4":
+            drink_Total += 4
+        elif self.Drink_pick.get() == "L&P:$4":
+            drink_Total += 4
+        elif self.Drink_pick.get() == "CokeCola:$4":
+            drink_Total += 4
+        elif self.Drink_pick.get() == "Sprite:$4":
+            drink_Total += 4
+        
+        if self.Milkshake_pick.get() == "Chocolate:$6":
+            drink_Total += 6
+        elif self.Milkshake_pick.get() == "strawberry:$6":
+            drink_Total += 6
+        elif self.Milkshake_pick.get() == "caramel:$6":
+            drink_Total += 6
+        
+        self.label_drink.configure(text=drink_Total)
     
     def quit(self):
         ''' Close the window '''
